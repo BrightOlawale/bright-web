@@ -179,13 +179,13 @@ const ScriptureBanner = () => {
 
   useEffect(() => {
     if (interactionLevel > 1) { // Only start cycling after at least 2 verses are unlocked
-      const interval = setInterval(() => {
+    const interval = setInterval(() => {
         setCurrentVerse((prev) => {
           const maxVerses = Math.min(verses.length, interactionLevel)
           return (prev + 1) % maxVerses
         })
       }, 4000)
-      return () => clearInterval(interval)
+    return () => clearInterval(interval)
     }
   }, [interactionLevel, verses.length])
 
@@ -345,7 +345,7 @@ const ScriptureBanner = () => {
           )}
 
           {interactionLevel > 0 && currentVerseData && (
-            <motion.div
+      <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -371,25 +371,25 @@ const ScriptureBanner = () => {
                             {currentVerseData.category}
                           </p>
                         </div>
-                      </div>
+              </div>
                       
                       {/* Verse Text */}
                       <div className="bg-muted/30 p-6 sm:p-8 rounded-xl border border-border/50">
-                        <AnimatePresence mode="wait">
-                          <motion.div
-                            key={currentVerse}
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            transition={{ duration: 0.5 }}
-                          >
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentVerse}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.5 }}
+                  >
                             <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-foreground italic font-medium">
-                              "{currentVerseData.text}"
-                            </p>
-                          </motion.div>
-                        </AnimatePresence>
-                      </div>
-                    </div>
+                      "{currentVerseData.text}"
+                    </p>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            </div>
                     
                     {/* Progress and Controls */}
                     <div className="space-y-8 text-center lg:text-left">
@@ -446,14 +446,14 @@ const ScriptureBanner = () => {
                       
                       {/* Action Buttons */}
                       <div className="space-y-3">
-                        <Button
+              <Button
                           onClick={handleInteraction}
                           className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity w-full sm:w-auto sm:min-w-[180px] py-3"
                           disabled={interactionLevel >= 20}
                         >
                           <Sparkles className="w-4 h-4 mr-2" />
                           {interactionLevel >= 20 ? 'Journey Complete!' : 'Next Verse'}
-                        </Button>
+              </Button>
                         <Button
                           variant="outline"
                           onClick={() => setShowFull(true)}
@@ -485,17 +485,17 @@ const ScriptureBanner = () => {
               <CardContent className="p-3 text-center">
                 <p className="text-white text-sm font-medium">💡 Keep discovering!</p>
                 <p className="text-white/80 text-xs mt-1">Click "Discover Next Verse" for more</p>
-                <Button
-                  variant="ghost"
-                  size="sm"
+              <Button
+                variant="ghost"
+                size="sm"
                   onClick={() => setShowHint(false)}
                   className="h-6 px-2 text-xs text-white hover:text-white hover:bg-white/20 mt-2"
-                >
+              >
                   Got it!
-                </Button>
-              </CardContent>
-            </Card>
-          </motion.div>
+              </Button>
+          </CardContent>
+        </Card>
+      </motion.div>
         )}
       </AnimatePresence>
 
@@ -584,12 +584,12 @@ const ScriptureBanner = () => {
                   </div>
 
                   <div className="text-center mt-6">
-                    <Button
-                      onClick={() => setShowFull(false)}
+                  <Button
+                    onClick={() => setShowFull(false)}
                       className="bg-gradient-to-r from-primary to-accent text-lg px-8 py-3"
-                    >
+                  >
                       Continue Exploring
-                    </Button>
+                  </Button>
                   </div>
                 </CardContent>
               </Card>
